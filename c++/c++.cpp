@@ -109,6 +109,19 @@ public:
 			return false;
 		}
 	}
+	// COUNT 
+	int Count(int value) {
+		node* firstNode = head;
+		int count = 0;
+		while (firstNode != NULL) {
+			if (firstNode->value == value) {
+				count++;
+			}
+			firstNode = firstNode->next;
+		}
+		return count;
+	}
+
 
 };
 int main() {
@@ -116,8 +129,10 @@ int main() {
 	l.InsertAtFirst(1);
 	l.Insert(-90, l.First());
 	l.Insert(100, NULL);
+	l.Insert(100, NULL);
 	l.Insert(400, NULL);
 	l.Insert(-200, l.First());
 	l.Insert(534, NULL);
+	cout << "ELMENT COUNT IS = " << l.Count(100);
 	return 0;
 }

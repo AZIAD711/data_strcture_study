@@ -100,6 +100,15 @@ public:
 	int Last() {
 		return tail->value;
 	}
+	// IS EMPTY 
+	bool IsEmpty() {
+		if (head == NULL) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 };
 int main() {

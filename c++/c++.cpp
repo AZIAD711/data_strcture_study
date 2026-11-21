@@ -156,22 +156,35 @@ public:
 			startNode = startNode->next;
 		}
 		return sum;
+	};
+	// Print Reverse
+	void PrintReverse() {
+		if (head == NULL) {
+			cout << "⚠️ LIST IS EMPTY";
+		}
+		node* startNode = tail;
+		cout << "\nLIST IS : \n";
+		while (startNode !=NULL) {
+			cout <<  startNode->value << "\t";
+			startNode = startNode->back;
+		}
 	}
 
 
 };
 int main() {
 	List l;
-	l.InsertAtFirst(1);
-	//l.Insert(-90, l.First());
-	l.Insert(100, NULL);
-	l.Insert(100, NULL);
-	l.Insert(400, NULL);
-	l.Insert(-200, l.First());
-	l.Insert(534, NULL);
+	l.InsertAtFirst(10);
+	l.Insert(20, l.First());
+	l.Insert(30, NULL);
+	l.Insert(40, NULL);
+	l.Insert(50, NULL);
+	l.Insert(60, l.First());
+	l.Insert(70, NULL);
 	cout << "ELMENT COUNT IS = " << l.Count(100);
 	cout << "\nMAX IS = " << l.Max();
 	cout << "\nMIN IS = " << l.Min();
 	cout << "\nSUM IS = " << l.Sum();
+    l.PrintReverse();
 	return 0;
 }

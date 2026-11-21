@@ -147,13 +147,23 @@ public:
 		return min->value;
 
 	};
+	// SUM 
+	int Sum() {
+		node* startNode = head;
+		int sum = 0;
+		while (startNode != NULL) {
+			sum += startNode->value;
+			startNode = startNode->next;
+		}
+		return sum;
+	}
 
 
 };
 int main() {
 	List l;
 	l.InsertAtFirst(1);
-	l.Insert(-90, l.First());
+	//l.Insert(-90, l.First());
 	l.Insert(100, NULL);
 	l.Insert(100, NULL);
 	l.Insert(400, NULL);
@@ -162,5 +172,6 @@ int main() {
 	cout << "ELMENT COUNT IS = " << l.Count(100);
 	cout << "\nMAX IS = " << l.Max();
 	cout << "\nMIN IS = " << l.Min();
+	cout << "\nSUM IS = " << l.Sum();
 	return 0;
 }

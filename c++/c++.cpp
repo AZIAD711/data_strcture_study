@@ -169,6 +169,21 @@ public:
 			startNode = startNode->back;
 		}
 	}
+	// Retrieve
+	int Retrieve(int index) {
+		node* startNode = head;
+		int count = 0;
+		while (startNode != NULL) {
+			if (count == index) {
+			
+				return startNode->value;
+			}
+			startNode = startNode->next;
+			count++;
+		}
+		return -1;
+	}
+
 
 
 };
@@ -185,6 +200,7 @@ int main() {
 	cout << "\nMAX IS = " << l.Max();
 	cout << "\nMIN IS = " << l.Min();
 	cout << "\nSUM IS = " << l.Sum();
+	cout << "\nELEMENT IS = " << l.Retrieve(1);
     l.PrintReverse();
 	return 0;
 }

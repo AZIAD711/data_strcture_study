@@ -169,7 +169,7 @@ public:
 			startNode = startNode->back;
 		}
 	}
-	// Retrieve
+	// Retrieve by index
 	int Retrieve(int index) {
 		node* startNode = head;
 		int count = 0;
@@ -177,6 +177,20 @@ public:
 			if (count == index) {
 			
 				return startNode->value;
+			}
+			startNode = startNode->next;
+			count++;
+		}
+		return -1;
+	}
+	// Retrieve by value 
+	int RetrieveByValue(int value) {
+		node* startNode = head;
+		int count = 0;
+		while (startNode != NULL) {
+			if (startNode->value == value) {
+
+				return count;
 			}
 			startNode = startNode->next;
 			count++;
@@ -201,6 +215,7 @@ int main() {
 	cout << "\nMIN IS = " << l.Min();
 	cout << "\nSUM IS = " << l.Sum();
 	cout << "\nELEMENT IS = " << l.Retrieve(1);
+	cout << "\nELEMENT BY VALUE IS = " << l.RetrieveByValue(20);
     l.PrintReverse();
 	return 0;
 }

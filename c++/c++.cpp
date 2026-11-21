@@ -196,7 +196,49 @@ public:
 			count++;
 		}
 		return -1;
-	}
+	};
+	// DELETE AT FIRST 
+	void DeleteAtStart() {
+		node* temp = head;
+		head = head->next;
+		if (head != NULL) {
+			head->back = NULL;
+		}
+		else {
+			tail = NULL;
+		}
+		delete temp;
+		counter--;
+	};
+	// DELETE AT END 
+	void DeleteAtEnd() {
+		node* temp = tail;
+		tail = tail->back;
+		if (tail != NULL) {
+			tail->next = NULL;
+		}
+		else {
+			head = NULL;
+		}
+		delete temp;
+		counter--;
+	};
+	// DELETE BY VALUE 
+	void DeleteValue(int value) {
+		node* temp = head;
+		while (temp != NULL && temp->value != value) {
+			temp = temp->next;
+		}
+		if (temp->back != NULL) {
+			temp->back->next = temp->back;
+		}
+		if (temp->next != NULL) {
+			temp->next->back = temp->next;
+		}
+		delete temp;
+		counter--;
+	};
+
 
 
 

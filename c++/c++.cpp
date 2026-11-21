@@ -238,7 +238,48 @@ public:
 		delete temp;
 		counter--;
 	};
+	void MoveEvenToEnd() {
+		if (head == NULL || head->next == NULL) {
+			return; // empty or single node: nothing to do
+		}
+		node* oddHead = NULL;
+		node* oddTail = NULL;
+		node* evenHead = NULL;
+		node* evenTail = NULL;
+		node* current = head;
+		while (current != NULL) {
+			node* nextNode = current->next;
+			if (current->value % 2 == 0) {
+				if (oddHead == NULL) {
+					oddHead = oddTail = current;
+				}
+				else {
+					oddTail->next = current;
+					oddTail = current;
+				}
+			}
+			else {
+				if (evenHead == NULL) {
+					evenHead = evenTail = current;
+				}
+				else {
+					evenTail->next = current;
+					evenTail = current;
+				}
+			}
+			current = nextNode;
+		}
+		if (oddHead == NULL) {
+			head = evenHead;
+			tail = evenTail;
+		}
+		else {
+			oddTail->next = evenHead;
+			head = oddHead;
+			tail = (evenTail != NULL) ? evenTail : oddTail;
+		}
 
+	}
 
 
 

@@ -123,7 +123,7 @@ public:
 	}
 	// MAX 
 	int Max() {
-		node* startNode = head; 
+		node* startNode = head;
 		node* max = head;
 		while (startNode != NULL) {
 			if (startNode->value > max->value) {
@@ -133,7 +133,20 @@ public:
 		}
 		return max->value;
 
-	}
+	};
+	// MIN 
+	int Min() {
+		node* startNode = head;
+		node* min = head;
+		while (startNode != NULL) {
+			if (startNode->value < min->value) {
+				min = startNode;
+			}
+			startNode = startNode->next;
+		}
+		return min->value;
+
+	};
 
 
 };
@@ -148,5 +161,6 @@ int main() {
 	l.Insert(534, NULL);
 	cout << "ELMENT COUNT IS = " << l.Count(100);
 	cout << "\nMAX IS = " << l.Max();
+	cout << "\nMIN IS = " << l.Min();
 	return 0;
 }

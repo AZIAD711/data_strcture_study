@@ -121,6 +121,19 @@ public:
 		}
 		return count;
 	}
+	// MAX 
+	int Max() {
+		node* startNode = head; 
+		node* max = head;
+		while (startNode != NULL) {
+			if (startNode->value > max->value) {
+				max = startNode;
+			}
+			startNode = startNode->next;
+		}
+		return max->value;
+
+	}
 
 
 };
@@ -134,5 +147,6 @@ int main() {
 	l.Insert(-200, l.First());
 	l.Insert(534, NULL);
 	cout << "ELMENT COUNT IS = " << l.Count(100);
+	cout << "\nMAX IS = " << l.Max();
 	return 0;
 }
